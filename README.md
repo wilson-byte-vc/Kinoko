@@ -1,1 +1,1 @@
-# Kinoko きのこ by ALT+F4
+# Kinoko きのこ by G09
