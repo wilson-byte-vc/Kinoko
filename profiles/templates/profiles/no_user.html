@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Profile · Kinoko{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="card">
+        <h1>Profile</h1>
+        <p>No one is signed in yet, so there's no profile to show.</p>
+    </section>
+{% endblock %}

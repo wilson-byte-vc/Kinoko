@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ profile.name }} · Kinoko{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="card profile-card">
+        {% if messages %}
+            {% for message in messages %}
+                <p class="notice">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <div class="profile-top">
+            {% if profile.picture %}
+                <img class="avatar" src="{{ profile.picture.url }}" alt="{{ profile.name }}'s profile picture">
+            {% else %}
+                <div class="avatar avatar-empty" aria-hidden="true">{{ profile.name|first|upper }}</div>
+            {% endif %}
+
+            <div>
+                <h1 class="profile-name">{{ profile.name }}</h1>
+                <p class="muted">@{{ profile.user.username }}</p>
+            </div>
+        </div>
+
+        <dl class="profile-details">
+            <dt>Date of birth</dt>
+            <dd>{{ profile.date_of_birth|date:"j F Y"|default:"Not set" }}</dd>
+
+            <dt>Interests</dt>
+            <dd>
+                {% for interest in profile.interest_list %}
+                    <span class="chip">{{ interest }}</span>
+                {% empty %}
+                    Not set
+                {% endfor %}
+            </dd>
+
+            <dt>Bio</dt>
+            <dd>{{ profile.bio|linebreaksbr|default:"Not set" }}</dd>
+        </dl>
+
+        <a class="btn" href="{% url 'profile_edit' %}">Edit profile</a>
+    </section>
+{% endblock %}

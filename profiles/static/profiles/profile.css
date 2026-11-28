@@ -1,0 +1,149 @@
+/* Profile pages. Uses the colour variables from color.css. */
+
+.card {
+    max-width: 560px;
+    margin: 24px auto;
+    padding: 28px;
+    border-radius: var(--radius-card);
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(var(--blur));
+}
+
+.card h1 {
+    margin-top: 0;
+}
+
+.muted {
+    color: var(--text-soft);
+    margin: 4px 0 0;
+}
+
+.notice {
+    margin: 0 0 16px;
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: rgba(120, 220, 160, 0.22);
+    border: 1px solid rgba(120, 220, 160, 0.45);
+}
+
+.error {
+    margin: 6px 0 0;
+    color: #ffd0d0;
+    font-size: 0.9rem;
+}
+
+/* Picture + name row */
+.profile-top {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.profile-name {
+    margin: 0;
+    font-size: 1.6rem;
+}
+
+.avatar {
+    width: 96px;
+    height: 96px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--glass-border);
+}
+
+/* Shown when there's no picture yet: first letter of the name */
+.avatar-empty {
+    display: grid;
+    place-items: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+    background: var(--glass-hover);
+}
+
+/* Date of birth / interests / bio list */
+.profile-details {
+    margin: 0 0 24px;
+}
+
+.profile-details dt {
+    margin-top: 16px;
+    font-size: 0.8rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+}
+
+.profile-details dd {
+    margin: 6px 0 0;
+    line-height: 1.5;
+}
+
+.chip {
+    display: inline-block;
+    margin: 0 6px 6px 0;
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    background: var(--glass-hover);
+    border: 1px solid var(--glass-border);
+    font-size: 0.9rem;
+}
+
+/* Forms */
+.form .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 18px;
+}
+
+.form label {
+    font-weight: 600;
+}
+
+/* Checkbox sits on the same line as its label */
+.form .field-check {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin-top: -8px;
+}
+
+.form .field-check label {
+    font-weight: 400;
+}
+
+.form input[type="text"],
+.form input[type="date"],
+.form textarea {
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    background: rgba(255, 255, 255, 0.92);
+    color: #1b2a44;
+    font: inherit;
+}
+
+.form textarea {
+    resize: vertical;
+}
+
+.form .actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-primary {
+    background: rgba(255, 255, 255, 0.9);
+    color: #1b2a44;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #ffffff;
+}

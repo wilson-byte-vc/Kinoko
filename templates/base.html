@@ -14,12 +14,14 @@
 
     <link rel="stylesheet" href="{% static 'css/color.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block extra_css %}{% endblock %}
 
 </head>
 
 <body>
     <header class="site-header">
         <a class="brand" href="{% url 'home' %}">Kinoko</a>
+        <a class="btn" href="{% url 'profile' %}">Profile</a>
         <a class="btn" href="{% url 'register' %}">Register</a>
     </header>
 
