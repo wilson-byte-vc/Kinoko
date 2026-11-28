@@ -1,0 +1,21 @@
+:root {
+    /* Scenery: blue */
+    --sky-top: #6f9fd8;
+    --sky-bottom: #1f3f73;
+    --scenery-image: url("../image/scenery-blue.jpg");
+
+    /* Text on top of the scenery */
+    --text: #ffffff;
+    --text-soft: rgba(255, 255, 255, 0.78);
+
+    /* Translucent "glass" surfaces */
+    --glass: rgba(255, 255, 255, 0.16);
+    --glass-hover: rgba(255, 255, 255, 0.26);
+    --glass-border: rgba(255, 255, 255, 0.30);
+    --blur: 14px;
+
+    /* Shape and spacing */
+    --radius-pill: 999px;
+    --radius-card: 20px;
+    --gutter: 20px;
+}
