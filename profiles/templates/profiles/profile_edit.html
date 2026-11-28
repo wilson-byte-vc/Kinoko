@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Edit profile · Kinoko{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="card profile-card">
+        <h1>Edit profile</h1>
+
+        <div class="profile-top">
+            {% if profile.picture %}
+                <img class="avatar" src="{{ profile.picture.url }}" alt="Current profile picture">
+            {% else %}
+                <div class="avatar avatar-empty" aria-hidden="true">{{ profile.name|first|upper }}</div>
+            {% endif %}
+        </div>
+
+        {# enctype is needed, or the picture file never reaches Django #}
+        <form method="post" enctype="multipart/form-data" class="form" novalidate>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+
+            {% for field in form %}
+                {% if field.name == "remove_picture" %}
+                    {# Only offer "remove" when there is a picture to remove #}
+                    {% if profile.picture %}
+                        <div class="field field-check">
+                            {{ field }}
+                            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        </div>
+                    {% endif %}
+                {% else %}
+                    <div class="field">
+                        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                        {% if field.help_text %}<small class="muted">{{ field.help_text }}</small>{% endif %}
+                        {% for error in field.errors %}<p class="error">{{ error }}</p>{% endfor %}
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            <div class="actions">
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a class="btn" href="{% url 'profile' %}">Cancel</a>
+            </div>
+        </form>
+    </section>
+{% endblock %}
