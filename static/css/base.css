@@ -1,14 +1,61 @@
 body {
     margin: 0;
+    min-height: 100vh;
     font-family: system-ui, sans-serif;
+    color: var(--text);
+
+    /* Layers, top first: dark tint, then photo, then gradient fallback */
+    background:
+        linear-gradient(rgba(10, 25, 55, 0.35), rgba(10, 25, 55, 0.55)),
+        var(--scenery-image),
+        linear-gradient(var(--sky-top), var(--sky-bottom));
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
+/* Translucent header */
 .site-header {
+    position: sticky;
+    top: 0;
     display: flex;
+    align-items: center;
     gap: 16px;
-    padding: 16px 20px;
+    padding: 14px var(--gutter);
+    background: var(--glass);
+    backdrop-filter: blur(var(--blur));
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.site-header a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.site-header .brand {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-right: auto;   /* pushes the other links to the right */
+}
+
+/* Translucent pill button */
+.btn {
+    display: inline-block;
+    padding: 12px 22px;
+    min-height: 48px;
+    box-sizing: border-box;
+    border-radius: var(--radius-pill);
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(var(--blur));
+    color: var(--text);
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: var(--glass-hover);
 }
 
 main {
-    padding: 20px;
+    padding: var(--gutter);
 }

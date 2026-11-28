@@ -1,28 +1,31 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  
+
+<<head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>
-      {% block title %}
-      Kinoko
-      {% endblock %}
+      {% block title %}Kinoko{% endblock %}
     </title>
 
+    <link rel="stylesheet" href="{% static 'css/color.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
 </head>
 
 <body>
     <header class="site-header">
-        <a href="{% url 'home' %}">Kinoko</a>
-        <a href="{% url 'register' %}">Register</a>
+        <a class="brand" href="{% url 'home' %}">Kinoko</a>
+        <a class="btn" href="{% url 'register' %}">Register</a>
     </header>
 
     <main>
         {% block content %}
-        
+
         {% endblock %}
     </main>
 </body>

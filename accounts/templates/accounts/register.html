@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Kinoko - Register</title>
-    </head>
-<body>
+{% extends "base.html" %}
 
+{% block title %}Register · Kinoko{% endblock %}
+
+{% block content %}
     <h1>Kinoko きのこ</h1>
     <h2>Create an account</h2>
 
@@ -15,6 +13,4 @@
         <label>Password:</label>
         <input type="password" placeholder="Enter your password">
     </form>
-
-</body>
-</html>
+{% endblock %}
