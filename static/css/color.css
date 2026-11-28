@@ -2,8 +2,8 @@
     /* Scenery: blue */
     --sky-top: #6f9fd8;
     --sky-bottom: #1f3f73;
-    --scenery-image: url("../image/scenery-blue.jpg");
-
+    --scenery-image: url("../image/fuji-desktop.jpg");
+    
     /* Text on top of the scenery */
     --text: #ffffff;
     --text-soft: rgba(255, 255, 255, 0.78);
